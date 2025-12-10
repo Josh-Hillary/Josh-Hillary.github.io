@@ -78,6 +78,27 @@
       }
     }
 
+    .parallax-bg {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255,0,255,0.12), transparent 70%),
+                  url('assets/spiral.png');
+      background-size: 900px 900px, cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: -1;
+      animation: spin 40s linear infinite;
+      filter: blur(4px) saturate(1.3);
+      opacity: 0.35;
+      transform: translateY(calc(var(--scroll, 0) * 0.2));
+      }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg) scale(1); }
+      to   { transform: rotate(360deg) scale(1); }
+      }
+
+
     .title{line-height:1}
     h1{font-family:Orbitron, sans-serif;color:var(--neon-magenta);font-size:44px;margin:0;text-shadow:0 0 18px rgba(255,0,255,.35)}
     p.lead{color:#D8D2FF;margin:6px 0 0}
@@ -125,6 +146,7 @@
   </style>
 </head>
 <body>
+  <div class="parallax-bg"></div>
   <div class="wrap">
     <header>
       <div class="logo"><img src="assets/logo.png" alt="Dog Cards logo (replace assets/logo.png)"></div>
