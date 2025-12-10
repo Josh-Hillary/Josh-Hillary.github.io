@@ -18,6 +18,32 @@
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:Montserrat,system-ui,Segoe UI,Roboto,Arial;color:#E8E4FF;background:var(--bg-gradient);}
     .wrap{max-width:1100px;margin:36px auto;padding:28px}
+    
+        /* --- Swipeable screenshot carousel --- */
+    .ss-carousel {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      border-radius: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .ss-inner {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .ss-inner img {
+      width: 260px;
+      height: auto;
+      border-radius: 10px;
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    
     header{
       display:flex;
       align-items:center;
@@ -176,12 +202,16 @@
 
     <section id="screenshots" class="card" style="margin-top:18px">
       <h2 class="neon-underline" style="color:var(--soft-lilac);font-family:Orbitron">Screenshots</h2>
-      <div class="screens">
-        <div class="sshot"><img src="assets/ss1.jpg" alt="Screenshot 1 (replace assets/ss1.jpg)"></div>
-        <div class="sshot"><img src="assets/ss2.jpg" alt="Screenshot 2 (replace assets/ss2.jpg)"></div>
-        <div class="sshot"><img src="assets/ss3.jpg" alt="Screenshot 3 (replace assets/ss3.jpg)"></div>
+    
+      <div class="ss-carousel" id="ssCarousel">
+        <div class="ss-inner">
+          <img src="assets/ss1.jpg" alt="Screenshot 1">
+          <img src="assets/ss2.jpg" alt="Screenshot 2">
+          <img src="assets/ss3.jpg" alt="Screenshot 3">
+        </div>
       </div>
     </section>
+
 
     <footer>
       <p>Developer: Joshua Hillary • Email: josh@dogcardsgame.com</p>
